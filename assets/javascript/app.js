@@ -24,7 +24,17 @@ var Questions = [
 
     ["which 80s rock glam band was Brett Micahels the lead singer of?", "Motley Crue", "Scorpians", "Whitesnake", "Poison", "d" ],
 ];
-
+var timeRemaining = 10
+var ticker = setInterval(function(){
+$("#timeremaining").text(timeRemaining)
+console.log("timer happening",timeRemaining)
+    if(timeRemaining===0){
+    alert("Your time is up!!")
+    clearInterval(ticker)
+    scoreboard()
+    }
+    timeRemaining--
+    },1000)
 
 function _(x) {
     return document.getElementById(x);
@@ -34,21 +44,21 @@ function getQuestions() {
     console.log(test,"this should be our html test")
     if(pos >= Questions.length){
         console.log("checking if statemnets")
-        test.innerHTML = <h2>"You got "+correct" of "+Questions.length+" questions correct"</h2>;
+        test.innerHTML = "<h2>You got "  + correct + "of" + Questions.length + "questions correct</h2>";
         _("test_status").innerHTML = "Test is Finished";
         pos = 0;
         correct = 0;
         return false;
     }
-    _("test_status").innerHTML = "Questions"+(pos+1)+" of "+Questions.length;
+    _("test_status").innerHTML = "Question "+ (pos+1)+" of "+Questions.length;
     question = Questions[pos][0];
     cha = Questions[pos][1];
     chb = Questions[pos][2];
     chc = Questions[pos][3];
     chd = Questions[pos][4];
     test.innerHTML ="<h3>"+question+"</h3>";
-    test.innerHTML += "<input type='radio' name='guesses' value='a'> "+cha+"><br>";
-    test.innerHTML += "<input type='radio' name='guesses' value='b'> "+chb+"><br>";
+    test.innerHTML += "<input type='radio' name='guesses' value='a'> "+cha+"<br>";
+    test.innerHTML += "<input type='radio' name='guesses' value='b'> "+chb+"<br>";
     test.innerHTML += "<input type='radio' name='guesses' value='c'> "+chc+"<br>";
     test.innerHTML += "<input type='radio' name='guesses' value='d'> "+chd+"<br><br>";
     test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
@@ -63,10 +73,14 @@ function checkAnswer() {
     if(guess == Questions[pos][5]){
         correct++
     }
-    else{alert("that is not correct dummy")}
-    pos++;
-    getQuestions();
+        pos++;
+
+        getQuestions();
 }
 window.addEventListener("load", getQuestions, false);
 
+function scoreboard(){
+    var winnerString = "you got " + correct  + " correct!!"
+    $("#scoreboard").text(winnerString)
 
+}
