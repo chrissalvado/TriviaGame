@@ -1,5 +1,25 @@
 #test{
 
     border:#000 3px solid;
-    padding: 10px 40px 40px 40px
+    padding: 10px 40px 40px 40px;
+    background-image: url(https://www.youtube.com/watch?v=-_8yiOdOszs);
+}
+
+#scoreboard{
+
+}
+body{
+    background-image: url("https://www.thoughtco.com/thmb/4FIUDx0kcd4T6_WvNOU8YRAJzIo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/crowd-at-music-concert-in-hall-692741269-599b2eb6685fbe0010e8b0c1.jpg");
+
+
+}
+.jumbotron{ 
+    height:500px
+}
+
+.navbar-brand{
+
+
+                @import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+                
 }
