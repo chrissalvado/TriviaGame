@@ -119,6 +119,8 @@ window.addEventListener("load", getQuestions, false);
 function scoreboard() {
     var winnerString = "you got " + correct + " correct!!"
     $("#scoreboard").text(winnerString);
+    
+
 
     getQuestions()
 
